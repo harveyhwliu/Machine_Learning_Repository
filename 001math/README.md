@@ -3,26 +3,21 @@
    - 微积分 ： 两边夹定理/夹逼定理
       - 说明：
       - ![夹逼定理](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/1_math_jiabidingli.png?raw=true)
-  
-===  
-   
+
    - 导数：曲线的斜率，表现了曲线变化的快慢  （标量）
       - 二阶导数 : 斜率变化的快慢的反应，表征曲线的凸凹性
 	  - GIS中，一条二阶导数连续的曲线，称之为“光滑”的
       - 举例：路程一阶导数是速度，二阶导数是加速度
 	  - ![常用导数公式](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/2_daoshu.png?raw=true)
-  
-===  
+
    
    - 泰勒公式：Maclaurin公式
       - ![泰勒公式](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/3_tyler_gongshi.png?raw=true)
-  
-===  
+
    
    - 方向导数：如果函数z=f(x,y)在点P(X,Y)是可微的，那么，函数在该点P(X,Y)延任一方向L的方向导数都存在,且为：
       - ![方向导数](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/4_fangxiangdaoshu.png?raw=true)  
-  
-===  
+
    
    - 梯度 ：（向量）
       - ![梯度定义](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/5_grad_definition.png?raw=true)  
@@ -31,8 +26,7 @@
 	     - 考虑一座解析式为z=H(x,y)的山，在（x0,y0）的梯度是在该点坡度变化最快的方向（且指向山顶的方向）。
 	  - 梯度下降法：  坡度变化最快，且指向山底方向  
 	     - 思考如下山方向和梯度呈 θ 夹角，下降速度是多少
-  
-===  
+
    
    - 凸函数 ： 导数递增的  二阶导数>0
       - ![梯度定义](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/6_tuhanshudingyi.png?raw=true)  
@@ -50,37 +44,29 @@
 			- 如果f"(x) <0  则f(x)是凹函数
 	     - 简单说： 一元二阶可微的函数在区间上是凸函数，当且仅当它的二阶导数是非负的
 		 
-  
-===  
-  
-===  
 
 #### 2.概率公式知识  
    - 条件概率
-      - 说明：
+      - 说明：P(AB)为事件AB的联合概率，P(A|B)为条件概率，表示在B条件下A的概率，P(B)为事件B的概率。
+	  - 理解：事件A和事件B都是同一实验下的不同的结果集合，事件A和事件B一般是有交集的AB，若没有交集（互斥），则条件概率为0.
+	  - 推广：对于任何正整数n≥2，当P(A1A2...An-1) > 0 时，有：P(A1A2...An-1An)=P(A1)P(A2|A1)P(A3|A1A2)...P(An|A1A2...An-1)
       - ![条件概率](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/1_tiaojiangailv.png?raw=true)
-  
-===  
+ 
    
    - 全概率公式
       - 说明：
+	  - 理解：全概率是条件概率的应用，某一实验所有的可能的样本的集合为Ω，圆圈A代表事件A所能囊括的所有样本，把总集合Ω分为n个小集合，依次为B1、B2···Bn，这些小集合两两互斥，那么显然，A的样本数目可以通过与Bi的交集来获得，也即P(A)=P（A∩B1的样本数）+P（A∩B2的样本数）+····+P（A∩Bn的样本数），再用条件概率P（AB） = P(A/B)*P(B)替换即可
       - ![条全概率公式](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/2_quangailvgongshi.png?raw=true)
-  
-===  
+   
    
    - 贝叶斯(Bayes)公式
-      - 说明：
+      - 说明：贝叶斯公式是建立在条件概率的基础上寻找事件发生的原因（即大事件A已经发生的条件下，分割中的小事件Bi的概率），设B1,B2,...是样本空间Ω的一个划分，Bi 常被视为导致试验结果A发生的”原因“，P(Bi)(i=1,2,...)表示各种原因发生的可能性大小，故称先验概率；P(Bi|A)(i=1,2...)则反映当试验产生了结果A之后，再对各种原因概率的新认识，故称后验概率。
       - ![贝叶斯公式](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/3_bayes.png?raw=true)
-  
-===  
+ 
    
    - 常见的概率分布
       - 说明：
       - ![概率分布](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/4_gailvfenpu.png?raw=true)
-  
-===  
+      - ![概率分布](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/7_fenbu1.png?raw=true)
    
-   
-https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/	  
-?raw=true
 
