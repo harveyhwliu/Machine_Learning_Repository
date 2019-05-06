@@ -21,5 +21,5 @@
 	 - 时间差学习
 
 #### 3.得分函数
-   -  输入是特征， 输出是
-   
+   -  输入是特征， 输出是得分函数
+      - ![得分函数](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/1_score_function.png?raw=true)
