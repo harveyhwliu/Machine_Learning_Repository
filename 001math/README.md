@@ -68,5 +68,6 @@
       - 说明：
       - ![概率分布](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/4_gailvfenpu.png?raw=true)
       - ![概率分布](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/7_fenbu1.png?raw=true)
+      - ![概率分布](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/8_fenbu2.png?raw=true)
    
 
