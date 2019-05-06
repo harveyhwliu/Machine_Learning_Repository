@@ -21,5 +21,13 @@
 	 - 时间差学习
 
 #### 3.得分函数
-   -  输入是特征， 输出是得分函数
-      - ![得分函数](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/1_score_function.png?raw=true)
+   - 输入是特征， 输出是得分函数，得分函数的未知量就是参数z的各个权重值
+      - ![得分函数](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/1_score_function.png?raw=true)  
+   - 损失函数的最优化问题
+      - 找到参数权重sita 使得损失函数最小的 得分函数
+	  - 非凸函数 vs 凸函数  如何求最优化问题
+      - ![损失函数的最优化问题]()
+	  
+#### 4.机器学习算法表
+   - sklearn 库
+   - ![机器学习算法表]()
