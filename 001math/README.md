@@ -71,3 +71,30 @@
       - ![概率分布](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/8_fenbu2.png?raw=true)
    
 
+#### 3、概率统计与机器学习的关系
+   - 统计估计的是分布，机器学习训练出来的是模型，模型可能包含了多个分布
+   - 训练与预测过程的一个核心评价指标就是模型的误差
+   - 误差本身就可以是概率的形式，与概率紧密相关
+   - 对误差的不同定义方式就演化了不同的损失函数的定义方式
+
+
+#### 4、常见统计量
+   - 期望： 概率加权下的“平均值”  （一个随机变量）
+      - 离散型： E(X) = ∑ xipi
+      - 连续性：E(X) = ∫xf(x)dx
+   -方差：  （一个随机变量）
+      - Var(x) = E{[X-E(X)]²} = E(X²)-E²（X）
+	  - Var(c) = 0
+	  - Var(x+C) = Var(x)
+	  - Var(Kx) = k²Var(x)
+	  - X和Y独立，则Var(X+Y) = Var(X)+Var(Y)
+	  - 标准差为 方差的平方根
+   - 协方差 ： （两个随机变量的关系）
+      - Cov(X,Y) = E{[X-E(X)][Y-E(Y)]}
+      - Cov(X,Y) =Cov(Y,X)
+      - Cov(aX+b,cY+d) =acCov(Y,X)	  
+      - Cov(X1+X2,Y) =Cov(X1,Y)+Cov(X2,Y)
+	  - Cov(X,Y)=E(XY)-E(X)E(Y)
+   
+   
+   
