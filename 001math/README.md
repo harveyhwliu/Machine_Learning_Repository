@@ -102,4 +102,6 @@
 
 	  
 #### 5、矩阵
-   - 
+   - 矩阵运算  ： 列向量的线性组合
+   - SVD： 矩阵DATA = 上三角矩阵U*可逆阵∑*（V ）t
+   - ![svd](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/svd.bmp?raw=true)
