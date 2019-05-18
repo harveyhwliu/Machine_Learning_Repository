@@ -61,8 +61,11 @@
        - 4. 对中文文本特征抽取，默认是按照空格分割的
        - 5. 为了提高特征提取准确性，需要 分词
        - 6. 分词采用jieba 分词
+
 	       -1. import jieba
+
 	       -2. Jieba.cut( str_params )  #返回词语生成器
+
 	       -3. 需要转换为所有词语的list   list(jieba.cut(str_params))用空格连接，产生新的字符串，待输入到.fit_transform(  )中进行分词  "".join( list(jieba.cut(str_params))）
 
 
@@ -72,15 +75,20 @@
    - 词语占比问题： 如何分类文章的类型？？
        - 如果 两篇文章中  中性词过多，不能代表两篇文章类似
 
-       - 5、tf    &  idf
-	       -主要思想： 如果某个词或短语在一篇文章中出现的概率高，并且在其他文章中很少出现，则认为此词或者短语具有很好的类别区分能力，适合分类
 
-	       -作用： 用来评估一个词 对于 一个文件集或一个语料库中的其他一份文件的重要程度。
+   - 5、tf    &  idf
 
-	       -类： sklearn.feature_extraction.text.TfidfVectorizer
+       -主要思想： 如果某个词或短语在一篇文章中出现的概率高，并且在其他文章中很少出现，则认为此词或者短语具有很好的类别区分能力，适合分类
 
-	       -原理：
+       -作用： 用来评估一个词 对于 一个文件集或一个语料库中的其他一份文件的重要程度。
 
-	       -1. tf  term frequency : 词的频率
-	       -2. idf  inverse document frequency 逆文档频率     log(总文档数量/改词出现的文档数)
-	       -3. 计算指标 ： 重要性程度 ： tf*idf
+       -类： sklearn.feature_extraction.text.TfidfVectorizer
+
+       -原理：
+
+       -1. tf  term frequency : 词的频率
+
+       -2. idf  inverse document frequency 逆文档频率     log(总文档数量/改词出现的文档数)
+
+       -3. 计算指标 ： 重要性程度 ： tf*idf
+       
