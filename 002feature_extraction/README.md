@@ -66,7 +66,7 @@
 
 	       -2. Jieba.cut( str_params )  #返回词语生成器
 
-	       -3. 需要转换为所有词语的list   list(jieba.cut(str_params))
+	       -3. 需要转换为所有词语的list   list(jieba.cut(str_params))  
 
 	       -4 用空格连接，产生新的字符串，待输入到.fit_transform(  )中进行分词  "".join( list(jieba.cut(str_params))）
 
