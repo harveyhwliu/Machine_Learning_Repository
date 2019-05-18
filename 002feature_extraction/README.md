@@ -66,7 +66,9 @@
 
 	       -2. Jieba.cut( str_params )  #返回词语生成器
 
-	       -3. 需要转换为所有词语的list   list(jieba.cut(str_params))用空格连接，产生新的字符串，待输入到.fit_transform(  )中进行分词  "".join( list(jieba.cut(str_params))）
+	       -3. 需要转换为所有词语的list   list(jieba.cut(str_params))
+
+	       -4 用空格连接，产生新的字符串，待输入到.fit_transform(  )中进行分词  "".join( list(jieba.cut(str_params))）
 
 
        - 4. 应用： 文本分类 ， 情感分析
@@ -91,4 +93,4 @@
        -2. idf  inverse document frequency 逆文档频率     log(总文档数量/改词出现的文档数)
 
        -3. 计算指标 ： 重要性程度 ： tf*idf
-       
+
