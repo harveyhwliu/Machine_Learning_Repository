@@ -66,7 +66,7 @@
 
 	       -2. Jieba.cut( str_params )  #返回词语生成器
 
-	       -3. 需要转换为所有词语的list   list(jieba.cut(str_params))  
+	       -3. 需要转换为所有词语的list   list(jieba.cut(str_params))
 
 	       -4 用空格连接，产生新的字符串，待输入到.fit_transform(  )中进行分词  "".join( list(jieba.cut(str_params))）
 
@@ -94,3 +94,108 @@
 
        -3. 计算指标 ： 重要性程度 ： tf*idf
 
+
+### 数据的类型
+
+	- 1、 对数据进行预处理   ： 提供 特定统计方法（数据方法） 将数据转换成 算法要求的数据
+
+		- 1） 特征预处理的方法  ：
+
+			- 1、 数值型数据  ：标准缩放
+
+				- 1、归一化
+
+					- 1）特点： 通过对原始数据进行变换，将  数据映射到 默认为【0-1 】之间
+
+					- 2）应用场景：各个数据特征是同等重要时，需要进行归一化操作
+
+					- 3）公式：
+
+						X'\quad =\quad \frac { x-min }{ max\quad -\quad min } \\ X''\quad =\quad X'\quad *\quad （ma\quad -\quad mi)\quad +mi
+
+
+						备注：作用于每一列，max为一列的最大值，min 为一列的最小值，那么X"为最终结果，mx ，mi 为指定区间，默认 mx = 1,mi = 0
+
+					- 4）Sklearn API：
+
+						- Sklearn.MinMaxScaler
+
+						- MinMaxScaler(feature_range=(1,2))   #通过指定feature_range指定归一化后值域被映射到【1-2】，默认是[0-1]
+
+					- 5）弊端：
+
+						- 如果数据中有明显的异常点 且 较多， 异常点  对 最大值，最小值影响较大
+
+						- 归一化  对异常点的影响较差
+
+					- 6）总结：
+
+						- 在特定场景下最大值 最小值是变化的，另外，最大值和最小值非常容易受异常点影响，所以这种方法鲁棒性较差，只适合传统精确小数据场景。
+				- 2、标准化
+
+					- 1） 特点：通过对原始数据进行变化，把数据变化到 均值为0 标准差为1的范围内
+
+					- 2）应用场景：
+
+						- 在已有样本足够多的场景下比较稳定，适合于现代嘈杂大数据场景
+
+					- 3）公式：X'=\frac { x-mean }{ deta }
+
+					- 4）x’= （x-mean）/deta 作用于每一列，mean为平均值，deta 为标准差，var 是方差
+
+					- 5）对于归一化来说，如果出现异常点，影响了最大值和最小值，那么结果显然会发生变化
+
+					- 6）对于标准化来说，如果出现异常点，由于具有一定数据量，少量的异常点对于均值的影响并不大，从而方差改变小
+
+					- 7）sklearn特征化API，sklearn.preprocessing.StandardScaler
+
+						- .fit_transform()
+
+						- .scale_
+
+						- .mean_
+
+				- 3、缺失值
+
+					- 1） 处理思想：
+
+						- 删除：如果每列或者行数据缺失值达到一定的比例，建议放弃正行或者整列
+
+						- 插补：可以通过缺失值 每行或者每列的平均值，中位数来填充
+
+					- 2）API：
+
+						- sklearn缺失值API： sklearn.preprocessing.Imputer
+
+						- Imputer(missing_values='NaN',strategy='mean',axis=0) 完成缺失值插补  axis =0 指定的是行 或者列
+
+						- 处理流程：
+
+							- 1） 初始化Imputer 指定的“缺失值”，指定填补策略，指定行或者列     注意：缺失值也可以是别的指定要替换的值
+
+							- 2）调用fit_transform
+
+					- 3） 关于 np.nan(np.NaN):
+
+						- 1、numpy 的数组可以使用np.nan/np.NaN来代替缺失值，属于float类型
+
+						- 2、如果是文件中的一些缺失值，可以替换成nan,通过np.array 转化成float 型的数组即可。
+
+
+					- 4）Pandas 处理 ：
+
+						- 前提是数据当中的确实值是：np.nan
+
+						- Pandas:dropna 删除
+
+						- Pandas:Fillna 插补
+
+						- Pandas::replace("?",np.nan)
+
+			- 2、类别型数据： one-hot 编码
+
+			- 3、时间类型：
+				- 时间且切分
+
+		- 2） sklearn 特征预处理的API
+            - Skearn.preprocessing

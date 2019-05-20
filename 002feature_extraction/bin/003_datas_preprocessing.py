@@ -1,7 +1,10 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.preprocessing import  StandardScaler
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import Imputer
+import numpy as np
+
 
 ##数据数据预处理  归一化
 def normalization_test():
@@ -60,11 +63,28 @@ def normalization_test03():
     print std_scaler.mean_
     print std_scaler.scale_
 
+##数据数据预处理  缺失值
+def normalization_test04():
+    """
+    缺失值处理
+    axis =0  按照行列理   axis =1 按照行处理  和 pandas 处理的一样的
+    :return:
+    """
+    imputer = Imputer(missing_values="NaN",strategy="mean",axis=0)  #nan NaN
+    print imputer
+
+    text_context = [[-1, 2], [-0.5, 6], [np.nan, 10], [1, 18]]  #这里特别注意是针对列进行处理
+    X = imputer.fit_transform(text_context)  #
+    print X
+
+
+
 
 def main():
     normalization_test()
     normalization_test01()
     normalization_test03()
+    normalization_test04()
 
 if __name__ == "__main__":
     main()
