@@ -1,0 +1,107 @@
+#!/usr/bin/python
+#coding:utf-8
+
+from sklearn.datasets import load_iris   #鸢尾花 数据集
+from sklearn.model_selection import train_test_split   #训练集和测试集划分
+from sklearn.datasets import fetch_20newsgroups  #加载大数据集，需要常网上下载的
+from sklearn.datasets import load_boston  #波士顿数据集，回归数据集
+
+
+
+def sklearn_datasets_iris():
+    iris_datas = load_iris()   #加载数据集 数据包含在 datasets 里
+    print "特征名称是："
+    print iris_datas.feature_names
+    print "特征数据数组是："
+    print iris_datas.data
+    print "标签名是:"
+    print iris_datas.target_names
+    print "标签数据数组是："
+    print iris_datas.target
+    print "数据描述是："
+    print iris_datas.DESCR
+    print "数据集保存的路径信息是："
+    print iris_datas.filename
+
+    print iris_datas
+    print iris_datas.keys()
+    return iris_datas
+
+def train_test_datas_split(datasets):
+    """
+    训练集合测试集拆分
+    :param datasets:   待拆分的数据集
+    :return:
+    """
+    train_datas,test_datas,train_target,test_target = train_test_split(datasets.data,datasets.target,test_size=0.25)
+    print "训练样本集数据是："
+    print train_datas
+    print "训练样本集标签是："
+    print train_target
+
+    print "测试样本集数据是："
+    print test_datas
+    print "测试样本集标签是："
+    print test_target
+
+
+def fetch_big_datasets():
+    """
+    获取大数据集
+    :return:
+    """
+    newgroups_datas = fetch_20newsgroups(data_home=None,subset="all")
+    print "特征名称是："
+    print newgroups_datas.feature_names
+    print "特征数据数组是："
+    print newgroups_datas.data
+    print "标签名是:"
+    print newgroups_datas.target_names
+    print "标签数据数组是："
+    print newgroups_datas.target
+    print "数据描述是："
+    print newgroups_datas.DESCR
+    print "数据集保存的路径信息是："
+    print newgroups_datas.filename
+
+    print newgroups_datas
+    print newgroups_datas.keys()
+    return newgroups_datas
+
+
+def sklearn_datasets_boston():
+    boston_datas = load_boston()   #加载数据集 数据包含在 datasets 里
+    print boston_datas.keys()
+    # print "特征名称是："
+    # print boston_datas.feature_names
+    print "特征数据数组是："
+    print boston_datas.data
+    print "标签名是:"
+    # print boston_datas.target_names
+    # print "标签数据数组是："
+    print boston_datas.target
+    print "数据描述是："
+    print boston_datas.DESCR
+    print "数据集保存的路径信息是："
+    print boston_datas.filename
+
+    print boston_datas
+    print boston_datas.keys()
+    return  boston_datas
+
+
+def main():
+    #小数据集的获取 与 分割
+    # iris_datas  = sklearn_datasets_iris()
+    # train_test_datas_split(iris_datas)
+
+    #大数据集的获取 与 分割
+    # fetch_big_datasets()
+
+    #回归数据集
+    boston_datas = sklearn_datasets_boston()
+
+
+
+if __name__ == "__main__":
+    main()
