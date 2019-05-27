@@ -1,0 +1,72 @@
+#!/usr/bin/python
+#coding:utf-8
+
+import pandas as pd
+from sklearn.model_selection import  train_test_split
+from sklearn.neighbors import  KNeighborsClassifier
+from sklearn.preprocessing import StandardScaler
+
+def knn():
+    _datas = pd.read_csv("D:\\kaggle\\facebook-v-predicting-check-ins\\train.csv")
+    # print _datas.head(10)
+
+    #处理数据
+    #1、缩小数据,查询数据筛选  dataFrame
+    _datas.query("x > 1.0 & x <1.25 & y >2.5 & y < 2.75")
+
+    _time_value = pd.to_datetime(_datas["time"],unit="s")
+
+    #把日期格式 转换成 字典格式
+
+    _time_dict = pd.DatetimeIndex(_time_value)
+
+    #构造特征：
+    _datas["day"] = _time_dict.day
+    _datas["hour"] = _time_dict.hour
+    _datas["weekday"] = _time_dict.weekday
+
+    #把时间戳特征删除
+    _datas = _datas.drop(["time"],axis=1) #pandas  axis =1 是列数据
+
+    #把签到数据少于n个的目标位置删除
+    place_count = _datas.groupby("place_id").count()
+    tf = place_count[place_count.row_id>3].reset_index() #次数大于3的重新设置一下  reset_index 把索引
+
+    _datas = _datas[_datas["place_id"]].isin(tf.place_id)
+
+    #取出数据中的特征值和目标值
+    y = _datas["place_id"]
+
+    x = _datas.drop(["place_id"],axis=1) #按列进行删除，保留其他数据，去掉标签值
+
+    #进行数据的分割训练集 和 测试集合
+
+    x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.25)
+
+    std = StandardScaler()
+    #特征工程  对测试集 和 训练集 的特征值  进行标准化
+    x_train = std.fit_transform(x_train)
+
+    y_train = std.fit_transform(y_train)
+
+
+    #进行算法流程
+    knn = KNeighborsClassifier(n_neighbors=5)
+
+    #训练 并预测
+    knn.fit(x_train,y_train)
+
+    #得到预测结果
+    y_predict = knn.predict(x_test)
+
+    #得出准确率
+    score = knn.score(x_test,y_predict)
+
+    print score
+
+def main():
+    knn()
+
+
+if __name__ == "__main__":
+    main()
