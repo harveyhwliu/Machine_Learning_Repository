@@ -69,7 +69,7 @@ def knn():
 
     #特征工程  对测试集 和 训练集 的特征值  进行标准化
     x_train = std.fit_transform(x_train)
-    x_test = std.fit_transform(x_test)
+    x_test = std.transform(x_test)
 
     #进行算法流程
     knn = KNeighborsClassifier(n_neighbors=5)
