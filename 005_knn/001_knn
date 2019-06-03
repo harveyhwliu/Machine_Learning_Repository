@@ -49,9 +49,6 @@ def knn():
 
     # print tf.head(10)
 
-    print tf.head(10)
-
-    print "-------------"
     _datas = _datas[_datas["place_id"].isin(tf.place_id)]
 
     print _datas.head(10)
@@ -83,6 +80,7 @@ def knn():
     #得到预测结果
     y_predict = knn.predict(x_test)
 
+    print "预测的未知为：",y_predict
     #得出准确率
     score = knn.score(x_test,y_test)
 
