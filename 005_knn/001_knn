@@ -12,8 +12,10 @@ def knn():
 
     #处理数据
     #1、缩小数据,查询数据筛选  dataFrame
-    #_datas.query("x > 1.0 & x <1.25 & y >2.5 & y < 2.75")
+    _datas.query("x > 1.0 & x <1.01 & y >2.0 & y < 2.01")
 
+
+    # print _datas.head(10)
     _time_value = pd.to_datetime(_datas["time"],unit="s")
 
     #把日期格式 转换成 字典格式
@@ -22,13 +24,13 @@ def knn():
 
     #构造特征：
     _datas["year"] = _time_dict.year
-    _datas["month"] = _time_dict.month
-    _datas["day"] = _time_dict.day
-    _datas["hour"] = _time_dict.hour
-    _datas["weekday"] = _time_dict.weekday
-    _datas["minute"] = _time_dict.minute
-    _datas["second"] = _time_dict.second
-    _datas["microsecond"] = _time_dict.microsecond
+    # _datas["month"] = _time_dict.month
+    # _datas["day"] = _time_dict.day
+    # _datas["hour"] = _time_dict.hour
+    # _datas["weekday"] = _time_dict.weekday
+    # _datas["minute"] = _time_dict.minute
+    # _datas["second"] = _time_dict.second
+    # _datas["microsecond"] = _time_dict.microsecond
 
     #把时间戳特征删除
     _datas = _datas.drop(["time"],axis=1) #pandas  axis =1 是列数据
@@ -37,7 +39,7 @@ def knn():
 
 
 
-    """
+
     #把签到数据少于n个的目标位置删除
     place_count = _datas.groupby("place_id").count()
 
@@ -50,11 +52,11 @@ def knn():
     print tf.head(10)
 
     print "-------------"
-    _datas = _datas[_datas["place_id"]].isin(tf.place_id)
+    _datas = _datas[_datas["place_id"].isin(tf.place_id)]
 
     print _datas.head(10)
 
-    """
+
     #取出数据中的特征值和目标值
     y = _datas["place_id"]     #获取目标值
     x = _datas.drop(["place_id"],axis=1) #按列进行删除，保留其他数据，去掉标签值  获取特征值
@@ -71,7 +73,6 @@ def knn():
     #特征工程  对测试集 和 训练集 的特征值  进行标准化
     x_train = std.fit_transform(x_train)
     x_test = std.fit_transform(x_test)
-
 
     #进行算法流程
     knn = KNeighborsClassifier(n_neighbors=5)
