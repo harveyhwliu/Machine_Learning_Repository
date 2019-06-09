@@ -80,7 +80,7 @@ def knn():
     #得到预测结果
     y_predict = knn.predict(x_test)
 
-    print "预测的未知为：",y_predict
+    print "预测的biao为：",y_predict
     #得出准确率
     score = knn.score(x_test,y_test)
 
