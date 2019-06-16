@@ -28,14 +28,14 @@ cross = pd.crosstab(_res["user_id"],_res["aisle"])
 
 #获取的结果是一个多维的特征结果，但是很多维数据都是0 ，因此需要进行PCA 降维
 
-pca = PCA(n_components=.095)
+pca = PCA(n_components=0.9)
 res = pca.fit_transform(cross)
-# print res.shape
+print res.shape
 
 
 #取其中的一部分数据进行计算（原始样本太大，计算耗时太长时间）
-x = res[:1000]
-
+x = res[:500]
+print x.shape
 
 #KMeans 聚类过程
 km = KMeans(n_clusters=5)
@@ -57,6 +57,7 @@ color_l = ["blue","orange","green","purple","red"]
 #将目标值替换成对应颜色标记
 colored = [color_l[i] for i in y_predict]
 
+print x.shape
 #画出某个特征和  目标值的  聚类关系图
 plt.scatter(x[ : , 1],x[ : , 20],color=colored)
 
