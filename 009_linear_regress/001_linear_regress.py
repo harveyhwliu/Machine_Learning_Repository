@@ -52,7 +52,7 @@ def  linear_regression():
 
     y_predict_new  = std_y.inverse_transform(y_predict)
 
-    print "采用梯度下降方法，测试样本的房子预测价格是： ",y_predict_new
+    print "采用正规方程方法，测试样本的房子预测价格是： ",y_predict_new
     print "采用正规方程方法的模型均方误差为：",mean_squared_error(std_y.inverse_transform(y_test),y_predict_new)
 
 
