@@ -6,7 +6,7 @@
 
    - 导数：曲线的斜率，表现了曲线变化的快慢  （标量）
       - 二阶导数 : 斜率变化的快慢的反应，表征曲线的凸凹性
-	  - GIS中，一条二阶导数连续的曲线，称之为“光滑”的
+	  - 一条二阶导数连续的曲线，称之为“光滑”的
       - 举例：路程一阶导数是速度，二阶导数是加速度
 	  - ![常用导数公式](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/2_daoshu.png?raw=true)
 
