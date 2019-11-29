@@ -50,25 +50,25 @@
       - 说明：P(AB)为事件AB的联合概率，P(A|B)为条件概率，表示在B条件下A的概率，P(B)为事件B的概率。
 	  - 理解：事件A和事件B都是同一实验下的不同的结果集合，事件A和事件B一般是有交集的AB，若没有交集（互斥），则条件概率为0.
 	  - 推广：对于任何正整数n≥2，当P(A1A2...An-1) > 0 时，有：P(A1A2...An-1An)=P(A1)P(A2|A1)P(A3|A1A2)...P(An|A1A2...An-1)
-      - ![条件概率](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/1_tiaojiangailv.png?raw=true)
+      - ![条件概率](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/LearningDemo/001math/image/1_tiaojiangailv.png?raw=true)
  
    
    - 全概率公式
       - 说明：
 	  - 理解：全概率是条件概率的应用，某一实验所有的可能的样本的集合为Ω，圆圈A代表事件A所能囊括的所有样本，把总集合Ω分为n个小集合，依次为B1、B2···Bn，这些小集合两两互斥，那么显然，A的样本数目可以通过与Bi的交集来获得，也即P(A)=P（A∩B1的样本数）+P（A∩B2的样本数）+····+P（A∩Bn的样本数），再用条件概率P（AB） = P(A/B)*P(B)替换即可
-      - ![条全概率公式](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/2_quangailvgongshi.png?raw=true)
+      - ![条全概率公式](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/LearningDemo/001math/image/2_quangailvgongshi.png?raw=true)
    
    
    - 贝叶斯(Bayes)公式
       - 说明：贝叶斯公式是建立在条件概率的基础上寻找事件发生的原因（即大事件A已经发生的条件下，分割中的小事件Bi的概率），设B1,B2,...是样本空间Ω的一个划分，Bi 常被视为导致试验结果A发生的”原因“，P(Bi)(i=1,2,...)表示各种原因发生的可能性大小，故称先验概率；P(Bi|A)(i=1,2...)则反映当试验产生了结果A之后，再对各种原因概率的新认识，故称后验概率。
-      - ![贝叶斯公式](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/3_bayes.png?raw=true)
+      - ![贝叶斯公式](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/LearningDemo/001math/image/3_bayes.png?raw=true)
  
    
    - 常见的概率分布
       - 说明：
-      - ![概率分布](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/4_gailvfenpu.png?raw=true)
-      - ![概率分布](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/7_fenbu1.png?raw=true)
-      - ![概率分布](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/8_fenbu2.png?raw=true)
+      - ![概率分布](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/LearningDemo/001math/image/4_gailvfenpu.png?raw=true)
+      - ![概率分布](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/LearningDemo/001math/image/7_fenbu1.png?raw=true)
+      - ![概率分布](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/LearningDemo/001math/image/8_fenbu2.png?raw=true)
    
 
 #### 3、概率统计与机器学习的关系
@@ -104,4 +104,4 @@
 #### 5、矩阵
    - 矩阵运算  ： 列向量的线性组合
    - SVD： 矩阵DATA = 上三角矩阵U*可逆阵∑*（V ）t
-   - ![svd](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/001math/image/svd.bmp?raw=true)
+   - ![svd](https://github.com/harveyhwliu/Machine_Learning_Repository/blob/master/LearningDemo/001math/image/svd.bmp?raw=true)
