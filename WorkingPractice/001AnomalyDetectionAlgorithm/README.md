@@ -18,6 +18,7 @@
 
    - 安装方式2，通过setup文件安装
 
+
     ```python
     git clone https://github.com/yzhao062/pyod.git
     cd pyod
