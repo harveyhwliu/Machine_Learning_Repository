@@ -8,7 +8,6 @@
    -. https://zhuanlan.zhihu.com/p/58313521
 
 ### 1. 安装文档：
-
    -.  安装方式1，通过pip安装
 
     ```python
@@ -16,7 +15,6 @@
     pip install --upgrade pyod  # or update if needed
     pip install --pre pyod      # or include pre-release version for new features
 ```
-
    -. 安装方式2，通过setup文件安装
 
     ```python
