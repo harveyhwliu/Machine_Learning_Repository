@@ -9,7 +9,7 @@
 
 ### 1. 安装文档：
 
-   -. 安装方式1，通过pip安装
+   -.  安装方式1，通过pip安装
 
     ```python
     pip install pyod            # normal install
