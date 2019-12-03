@@ -7,6 +7,6 @@
       +  异常检测（又称outlier detection、anomaly detection，离群值检测）是一种重要的数据挖掘方法，可以找到与“主要数据分布”不同的异常值（deviant from the general data distribution），比如从信用卡交易中找出诈骗案例，从正常的网络数据流中找出入侵，有非常广泛的商业应用价值。同时它可以被用于机器学习任务中的预处理（preprocessing），防止因为少量异常点存在而导致的训练或预测失败。  
 
 + #### 异常检测的领域资料：
-      - https://github.com/yzhao062/anomaly-detection-resources  
-      - https://zhuanlan.zhihu.com/p/58313521  
-      - https://mp.weixin.qq.com/s?__biz=MzIzODExMDE5MA==&mid=2694182558&idx=1&sn=7a9043417ceaf3ca783a507eea18c2d6&chksm=cc5f021ffb288b095834570b123ad9c5d4e36e852f9f5bc4fea738486e3577dde69fa9b9b43f#rd  
+   - https://github.com/yzhao062/anomaly-detection-resources  
+   - https://zhuanlan.zhihu.com/p/58313521  
+   - https://mp.weixin.qq.com/s?__biz=MzIzODExMDE5MA==&mid=2694182558&idx=1&sn=7a9043417ceaf3ca783a507eea18c2d6&chksm=cc5f021ffb288b095834570b123ad9c5d4e36e852f9f5bc4fea738486e3577dde69fa9b9b43f#rd  
