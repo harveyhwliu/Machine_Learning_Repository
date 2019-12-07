@@ -8,6 +8,9 @@ import numpy as np
 import math
 from collections import Counter#简单的计数器
 
+from sklearn.ensemble import IsolationForest
+from scipy import stats
+import matplotlib.pyplot as plt
 
 class Node:
     def __init__(self, val=None, right=None, left=None):
@@ -75,40 +78,66 @@ class RandomTree:
         return path_len
 
 
-class IsolationForest:
+class MyIsolationForest:
     def __init__(self, n_tree, epsilon):
         self.n_tree = n_tree    #建立的数的个数
         self.epsilon = epsilon  # 异常点比例
-        self.scores = Counter()
+        self.scores = Counter() #异常得分，前面用来统计路径，后面会计算得到异常得分
 
     def fit_predict(self, data):
         for _ in range(self.n_tree):  #指定n 棵树
             RT = RandomTree()
             RT.fit(data)
             path_len = RT.traverse()
-            self.scores = self.scores + path_len
-        n_sample = data.shape[0]
+            self.scores = self.scores + path_len        #进行n遍划分
+        n_sample = data.shape[0]                        #220行数据
+
         phi = 2 * math.log(n_sample - 1) - 2 * (n_sample - 1) / n_sample
         for key, val in self.scores.items():
             self.scores[key] = 2 ** -(val / self.n_tree / phi)  # 归一化
         q = np.quantile(list(self.scores.values()), 1 - self.epsilon)
         outliers = [key for key, val in self.scores.items() if val > q]
+
         return outliers
 
 
 if __name__ == '__main__':
     np.random.seed(42)#seed( ) 用于指定随机数生成时所用算法开始的整数值，如果使用相同的seed( )值，则每次生成的随即数都相同，如果不设置这个值，则系统根据时间来自己选择这个值，此时每次生成的随机数因时间差异而不同。
-    X_inliers = 0.3 * np.random.randn(100, 2)
-    X_inliers = np.r_[X_inliers + 2, X_inliers - 2]
-    X_outliers = np.random.uniform(low=-4, high=4, size=(20, 2))
+    # X_inliers = 0.3 * np.random.randn(100, 2)
+    # X_inliers = np.r_[X_inliers + 2, X_inliers - 2]
+    # X_outliers = np.random.uniform(low=-4, high=4, size=(20, 2))
+    X_inliers = [[1,2] for i in range(100)]
+    X_outliers = [[1,1.9] for i in range(20)]
     data = np.r_[X_inliers, X_outliers]
 
-    IF = IsolationForest(100, 0.1)
-    out_ind = IF.fit_predict(data)
+    # #自己实现的IsolationForest
+
+    # IF = MyIsolationForest(100, 0.1)
+    # out_ind = IF.fit_predict(data)
+    # print out_ind
+    # outliers = data[out_ind]
+
+    #
+    # plt.scatter(data[:, 0], data[:, 1], color='b')
+    # plt.scatter(outliers[:, 0], outliers[:, 1], color='r')
+    # plt.show()
+
+    ## 使用系统Sklearn的IsolationForest
+
+    clf = IsolationForest(n_estimators=100,n_jobs=-1)          # 使用全部cpu
+    clf.fit(data)
+    pre = clf.predict(data)                                    #+1 表示正常样本， -1表示异常样本
+    scores_pred = clf.decision_function(data)
+    threshold = stats.scoreatpercentile(scores_pred, 1)  #根据训练样本中异常样本比例，得到阈值，用于绘图
+    out_ind = []
+    for _index,x in enumerate(pre):
+        if x==-1:
+            out_ind.append(_index)
+
     outliers = data[out_ind]
-
-    import matplotlib.pyplot as plt
-
     plt.scatter(data[:, 0], data[:, 1], color='b')
     plt.scatter(outliers[:, 0], outliers[:, 1], color='r')
     plt.show()
+
+
+
