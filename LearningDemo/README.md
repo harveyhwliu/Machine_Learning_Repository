@@ -15,7 +15,9 @@
      - 聚类
 	 - 关联规则
    - 半监督学习  - ( 特征1 .. 特征n 标签1;...;特征1 .. 特征n) - > 半监督学习算法  训练集有的有标签，有的无标签 
-     - TODO
+     - Transductive learning 和 Inductive learning 都是半监督学习的方式，区别在于：
+     - Transductive learning:unlabelled data is the testing data，测试数据集可以参与训练。
+     - inductive learning:unlabelled data is not the testing data，测试数据集不参与训练。
    - 强化学习
      - Q-learning
 	 - 时间差学习
